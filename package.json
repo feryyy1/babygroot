@@ -9,7 +9,7 @@
   },
   "type": "commonjs",
   "dependencies": {
-    "@mostfeatured/dbi": "^1.0.0",
+    "@mostfeatured/dbi": "0.1.32",
     "discord.js": "^14.16.2"
   }
 }
