@@ -4,14 +4,14 @@ const dbi = require("./dbi");
 (async () => {
   await Utils.recursiveImport("./src");
   await dbi.load();
-  const client = await dbi.login();
+  await dbi.login();
 
-  // client burada kesinlikle hazır
-  client.user.setActivity({
-    name: "MostFeatured ❤️ BabyGroot",
-    type: "PLAYING"
+  dbi.events.ready(() => {
+    dbi.client.user.setActivity({
+      name: "MostFeatured ❤️ BabyGroot",
+      type: "PLAYING"
+    });
+
+    console.log(`✅ Bot giriş yaptı: ${dbi.client.user.tag}`);
   });
-
-  console.log(`✅ Bot giriş yaptı: ${client.user.tag}`);
 })();
-
