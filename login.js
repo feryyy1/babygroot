@@ -5,8 +5,12 @@ const dbi = require("./dbi");
   await Utils.recursiveImport("./src");
   await dbi.load();
   await dbi.login();
-  await dbi.client.user.setActivity({
-    name: "MostFeatured ❤️ BabyGroot"
+
+  dbi.client.once("ready", () => {
+    dbi.client.user.setActivity({
+      name: "MostFeatured ❤️ BabyGroot",
+      type: "PLAYING"
+    });
+    console.log(`✅ Bot giriş yaptı: ${dbi.client.user.tag}`);
   });
-  console.log(`✅ Bot giriş yaptı: ${dbi.client.user.tag}`);
 })();
