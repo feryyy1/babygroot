@@ -13,7 +13,15 @@ const dbi = createDBI("babygroot", {
     directMessages: false
   },
   messageCommands: {
-    prefixes: ["!", "."]
+    prefixes: ["!", "."],
+    typeAliases: {
+      booleans: {
+        "true": true,
+        "false": false,
+        "evet": true,
+        "hayır": false
+      }
+    }
   }
 });
 
