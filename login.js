@@ -6,12 +6,11 @@ const dbi = require("./dbi");
   await dbi.load();
   await dbi.login();
 
-  dbi.events.ready(() => {
+  dbi.client.once("ready", () => {
     dbi.client.user.setActivity({
       name: "MostFeatured ❤️ BabyGroot",
       type: "PLAYING"
     });
-
     console.log(`✅ Bot giriş yaptı: ${dbi.client.user.tag}`);
   });
 })();
