@@ -2,15 +2,7 @@ const { Utils } = require("@mostfeatured/dbi");
 const dbi = require("./dbi");
 
 (async () => {
-  await Utils.recursiveImport("./src");
-  await dbi.load();
-  await dbi.login();
-
-  dbi.client.once("ready", () => {
-    dbi.client.user.setActivity({
-      name: "MostFeatured ❤️ BabyGroot",
-      type: "PLAYING"
-    });
-    console.log(`✅ Bot giriş yaptı: ${dbi.client.user.tag}`);
-  });
+  await Utils.recursiveImport("./src"); // src/ klasöründeki tüm komut ve eventleri yükler
+  await dbi.load(); // botu yükler
+  await dbi.login(); // botu Discord'a bağlar
 })();
